@@ -1,0 +1,429 @@
+
+<html>
+<head>
+    <html lang="es">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>título</title>
+    <style>
+        /* Estilos generales del cuerpo de la página */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            font-size: 110%;
+            align-items: center;
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+        }
+
+        /* Estilos del encabezado */
+        #encabezado {
+            display: flex;
+            align-items: center;
+            background: url('fondo.jpg') center/cover no-repeat;
+            padding: 20px;
+            color: rgb(12, 1, 1);
+        }
+
+        #logo {
+            width: 300px;
+            margin-right: 10px;
+            font-size: 500%;
+        }
+
+        .titulo-con-fondo {
+            background-color: rgb(225, 236, 229); /* Fondo blanco */
+            color: black; /* Color del texto */
+            padding: 5px 10px; /* Espaciado interno (vertical y horizontal) */
+            text-align: center; /* Centrar el texto */
+            margin: 0; /* Quitar márgenes del título */
+            width: 100%; /* Ocupa todo el ancho de la página */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra opcional */
+        }
+
+        /* Estilos del contenedor principal */
+        #contenedor {
+            display: flex;
+        }
+
+        #panel {
+            width: 250px;
+            padding: 20px;
+            background: rgba(216, 234, 223, 0.9);
+            margin: 20px;
+        }
+
+        #titulos-jardines {
+            flex: 1;
+            padding: 20px;
+            background: rgba(208, 228, 218, 0.9);
+            margin: 20px;
+        }
+
+        a {
+            text-decoration: none;
+            color: black;
+        }
+
+        #map1,
+        #map2,
+        #map3 {
+            margin-bottom: 10px;
+            cursor: pointer;
+            color: #333;
+        }
+
+        #map1:hover,
+        #map2:hover,
+        #map3:hover {}
+
+        #titulos-menu {
+            flex: 1;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.9);
+            margin: 20px;
+        }
+
+        #menu1,
+        #menu2,
+        #menu3,
+        #menu4 {
+            margin-bottom: 10px;
+            cursor: pointer;
+            color: #333;
+        }
+
+        #menu1:hover,
+        #menu2:hover,
+        #menu3:hover,
+        #menu4:hover a {
+            text-decoration: none;
+            color: black;
+            font-size: 110%;
+            /* Aumento del 20% */
+        }
+
+        #panel h3 {
+            margin-bottom: 10px;
+            cursor: pointer;
+            color: #004d40;
+        }
+
+        #panel h3:hover {}
+
+        .section {
+            padding: 20px;
+            margin-top: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .subsection {
+            display: none;
+            padding: 20px;
+            margin-top: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .subsection-button {
+            background-color: #004d40;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        .contenedor-imagenes {
+            display: flex;
+        }
+
+        .contenedor-imagenes img {
+            width: 30%;
+            height: auto;
+            align-items: center;
+        }
+        
+          /* Estilo base para todos los botones */
+          .boton-enlace {
+            color: white; /* Color del texto */
+            border: none; /* Sin borde */
+            padding: 10px 20px; /* Espaciado interno */
+            text-align: center; /* Centrar texto */
+            text-decoration: none; /* Sin subrayado */
+            display: inline-block;
+            font-size: 16px; /* Tamaño de fuente */
+            border-radius: 5px; /* Bordes redondeados */
+            cursor: pointer; /* Cambia el cursor al pasar por encima */
+            margin: 5px; /* Espaciado entre botones */
+        }
+
+        /* Botón rojo */
+        .boton-rojo {
+            background-color: #dc3545; /* Rojo */
+        }
+
+        .boton-rojo:hover {
+            background-color: #c82333; /* Más oscuro al pasar el ratón */
+        }
+
+        /* Botón verde */
+        .boton-verde {
+            background-color: #28a745; /* Verde */
+        }
+
+        .boton-verde:hover {
+            background-color: #218838; /* Más oscuro al pasar el ratón */
+        }
+
+        /* Botón azul */
+        .boton-azul {
+            background-color: #007bff; /* Azul */
+        }
+
+        .boton-azul:hover {
+            background-color: #0056b3; /* Más oscuro al pasar el ratón */
+        }
+
+
+        font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            height: 2000px; /* Simula una página larga */
+            background-color: #f0f0f0;
+        }
+
+        /* Botón flotante para subir */
+        .scroll-btn {
+            position: fixed; /* Permanece visible al desplazarse */
+            bottom: 20px; /* Distancia desde el borde inferior */
+            right: 20px; /* Distancia desde el borde derecho */
+            background-color: #004d40; /* Fondo verde oscuro */
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            font-size: 18px;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra */
+            transition: background-color 0.3s ease;
+        }
+
+        .scroll-btn:hover {
+            background-color: #00796b; /* Cambio de color al pasar el mouse */
+        }
+     /* Estilos generales para todas las pantallas */
+
+@media only screen and (max-width: 600px) {
+    /* Estilos para pantallas pequeñas */
+    /* Puedes agregar aquí los estilos específicos para pantallas pequeñas */
+}
+    </style>
+
+</head>
+
+<body>
+
+    <div id="encabezado">
+        <h1 class="titulo-con-fondo">MAPGIS 
+            <div style="height: 10px;"></div>cartografía y gestión ambiental</h1>
+       
+       
+    </div>
+
+    <div id="contenedor">
+        <div id="panel">
+            <p></p>
+            <div id="menu1"><a href="#menu1-section">¿Quiénes somos?</a></div>
+            <h2></h2>
+            <div id="menu2"><a href="#menu2-section">Canal de youtube</a></div>
+            <h2></h2>
+            <div id="menu3"><a href="#menu3-section">Servicios de geoinformación</a></div>
+            <h2></h2>
+            <div id="menu4"><a href="#menu4-section">Mapas interactivos</a></div>
+            <h2></h2>
+            <div id="menu5"><a href="#menu5-section">Servicio de páginas web</a></div>
+        </div>
+
+        <div id="titulos-jardines">
+          <style>
+            p {
+              text-align: justify;
+            }
+          </style>
+           <section id="JBRIS"></section>
+            <h2>Descubre mapas interactivos</h2>
+            <div id="map1"><a href="#map1-section">Mapa 1</a></div>
+            <p></p>
+            <div id="map2"><a href="#map2-section">Mapa 2</a></div>
+            <p></p>
+            <div id="map3"><a href="#map3-section">Mapa 3</a></div>
+            <p></p>
+            
+            
+            <p></p>
+            <head>
+              <meta charset="UTF-8">
+              <meta name="viewport" content="width=device-width, initial-scale=1.0">
+              <title>Botón Verde Oscuro de Redirección a Google Maps</title>
+              <style>
+                  /* Estilos para el botón */
+                  .boton-verde-oscuro {
+                      display: inline-block;
+                      padding: 10px 20px;
+                      background-color: #006400; /* Verde oscuro */
+                      color: #fff; /* Texto blanco */
+                      text-decoration: none;
+                      border: none;
+                      border-radius: 5px;
+                      cursor: pointer;
+                      font-size: 16px;
+                  }
+          
+                  .boton-verde-oscuro:hover {
+                      background-color: #004d00; /* Cambia el color al pasar el ratón */
+                  }
+              </style>
+          </head>
+          <body>
+          
+              <!-- Botón con enlace a Google Maps -->
+              <a href="https://maps.app.goo.gl/BcCphBaMa9RwoHbb7" target="_blank" class="boton-verde-oscuro">
+                  google maps
+              </a>
+        </div>
+    </div>
+  </section>
+
+    <section id="menu1-section" class="section">
+      
+       <style>
+        p {
+          text-align: justify;
+        }
+      </style>
+
+    <title>MAPGIS: cartografía y gestión ambiental</title>
+    <div style="height: 80px;"></div>
+    
+    <style>
+        body {
+            background-image: url('tu-imagen.jpg'); /* Reemplaza 'tu-imagen.jpg' con la ruta a tu imagen */
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            opacity: 0.8;
+            margin: 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.8); /* Fondo blanco con algo de transparencia */
+        }
+
+        /* Estilos para los paneles */
+        .panel {
+            margin-bottom: 20px;
+        }
+
+        /* Estilos para las secciones */
+        .section {
+            padding: 20px;
+        }
+    </style>
+   
+        </head>  
+  
+    <section id="menu1-section" class="section">
+    <h2> Administradora ambiental </h2>
+    <p>Luisa Fernanda Mejía García</p>
+    <div class="contenedor-imagenes">
+    <img src="luisa.jpg" alt="Imagen 1">
+</div>
+    <p>Egresada de la Universidad Tecnológica de Pereira, especializada en Sistemas de Información Geográfica.
+        Enfoque en creación de geodatos mediante plataformas como ARCGIS Online, ARCGIS PRO, ARCMAP y QGIS, además del manejo e importación de datoss desde Google Earth, AUTOCAD y Google Maps.</p>
+<p> Cuenta con experiencia en el sector píublico y privado. Desde el sector público con el manejo de bases de datos para desarrollar infraestructura vial, y el sector privado, el manejo y creación de Dashboards y geodatabases sobre redes de acueducto y alcantarillado. </p>
+</section>
+       
+<section id="menu2-section" class="section">
+            <h2>Canal de YouTube</h2>
+            <p>¡Descubre el apasionante mundo de la información geográfica! 🌍 Aprende sobre mapas, análisis espacial y herramientas SIG como ArcGIS Online con contenido práctico y actualizado. 🔎 Suscríbete ahora y lleva tus habilidades al siguiente nivel. 🚀 ¡Sé parte de nuestra comunidad de exploradores digitales!"</p>
+           
+                <a href="https://www.youtube.com/@GeosolucionesARCGIS" target="_blank">
+                    <img 
+                        src="img-youtube.png" 
+                        alt="Miniatura del video" 
+                        style="width: 800px; border: 1px solid #ccc;">
+                </a>
+           
+
+            <p>Suscríbete a nuestro canal para conocer las últimas novedades.</p>
+      </section>
+
+        <section id="menu3-section" class="section">
+                <h2>Geoinformación</h2>
+                <p>Aquí puedes mostrar una galería de tus mapas o enlaces a ellos.</p>
+        </section>
+
+        <section id="menu4-section" class="section">
+            <h2>Mapas desarrollados</h2>
+            <p>En esta sección encontrarán mapas creados principalmente con la intención de que se 
+                puedan interactuar con ellos.</p>
+                <p>1. Mapa de colombia con riesgos potenciales identificados según el IDEAM.</p>
+                <button class="boton-enlace boton-rojo" onclick="window.location.href='file:///L:/Documentos/Info%20videos/Cotas%20PEI/Mapa%20web%20QGIS.html'">
+                    Mapa de Colombia: riesgos.
+                </button>
+
+                <p>2. Mapa de curvas de nivel (cotas) en una zona determinada de Risaralda, Colombia.</p>
+                <button class="boton-enlace boton-rojo" onclick="window.location.href='file:///L:/Documentos/Info%20videos/qgis2web_2024_12_06-20_04_21_254881/Cotas%20de%20Pereira.html'">
+                    Curvas de nivel
+                </button>
+                <button class="scroll-btn" onclick="scrollToTop()">▲</button>
+                
+</section>       
+
+        <section id="menu5-section" class="section">
+            <h2>Páginas web</h2>
+            <p>Se han desarrollado páginas web para la Corporación Autónoma Regional de Risaralda (CARDER) de la red departamental de 
+                jardínes botánicos del departamento de Risaralda.</p>
+                <p>Si quieres descubrirla y explorarla, da clic en "Jardínes Botánicos de Risaralda".</p>
+                <button class="boton-enlace boton-verde" onclick="window.location.href='file:///L:/Documentos/jardin_bot_Ris/index.html'">
+                    Jardínes Botánicos de Risaralda
+                </button>
+                
+           
+                
+    </section>
+
+    <!-- Botón para subir -->
+<button class="scroll-btn" onclick="scrollToTop()">▲</button>
+
+<script>
+    // Función para desplazar la página hasta el inicio
+    function scrollToTop() {
+        const scrollInterval = setInterval(() => {
+            const currentScroll = window.scrollY;
+            if (currentScroll > 0) {
+                window.scrollTo(0, currentScroll - 20); // Desplazamiento gradual hacia arriba
+            } else {
+                clearInterval(scrollInterval); // Detener cuando llega al inicio
+            }
+        }, 16); // Intervalo para desplazamiento suave
+    }
+</script>
+
+
+</body>
+
+</html>
